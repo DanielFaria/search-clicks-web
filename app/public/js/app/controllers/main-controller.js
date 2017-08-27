@@ -1,5 +1,14 @@
 app.controller('MainController', ['$scope', '$http',
     function MainController($scope, $http) {
+        $scope.events;
+        var baseUrl = 'http://localhost:3000/v1/events/bus';
+
+        $http.get(baseUrl).then(function(response) {
+          console.log(response.data);
+          $scope.events = response.data;
+        }, function(err) {
+          console.log(err);
+        });
 
         $scope.people = [
             {firstName: "Daryl", surname: "Rowland", twitter: "@darylrowland", pic: "img/daryl.jpeg"},
