@@ -8,61 +8,35 @@
     </head>
 	<body ng-app="app">
 		<div ng-controller="MainController">
-            <h1>Clicks</h1>
+            <h1>Busca de Eventos</h1>
             <p>
-                Vamos buscar os clicks em seu site
+                Eventos
             </p>
-
-
-
             <div class="large-padded-row">
-                <h3>Clicks</h3>
+
+
+                <h3>Eventos</h3>
                 <div class="padded-row">
-                    <angucomplete id="ex1" placeholder="Search countries"
-										pause="100" selectedobject="selectedCountry"
-									  searchfields="name" titlefield="name" minlength="3"
-										inputclass="form-control form-control-small" matchclass="highlight"
-                    url="http://localhost:3000/v1/events/"
-										 />
-                </div>
-								<div >
-										 <ul ng-repeat="event in events">
-										  <li>{{event.event}}  - {{event.timestamp}} - {{event.site}}   </li>
-										</ul>
-							 </div>
+									<angucomplete id="members"
+													placeholder="Busca Eventos"
+													pause="200"
+													selectedobject="evento"
+													url="https://searchclicks-api.herokuapp.com/v1/events/"
+													minlength="3"
+													titlefield="name"
+													descriptionfield="name"
+													inputclass="form-control form-control-small"/>
+									</div>
+									<div class="" ng-show="evento">
+											O evento  <span class="bold-span">{{evento.originalObject.name}}</span> ocorreu  <span class="bold-span">{{evento.originalObject.total}} </span> vez(es) nos sites monitorados.
+									</div>
 
-
-
-            </div>
-
-            <!--
-            <div class="large-padded-row">
-                <h3>Example 2 - People</h3>
-                <div class="padded-row">
-                    <angucomplete id="ex2" placeholder="Search people" pause="300" selectedobject="selectedPerson" localdata="people" searchfields="firstName,surname" titlefield="firstName,surname" descriptionfield="twitter" imagefield="pic" minlength="1" inputclass="form-control form-control-small" matchclass="highlight" />
-                </div>
-                <div class="" ng-show="selectedPerson">
-                    You selected <span class="bold-span">{{selectedPerson.originalObject.firstName}} {{selectedPerson.originalObject.surname}}</span>
                 </div>
 
 
-            </div>
-            -->
-            <div class="very-large-padded-row">
-                <h2>Construído com a Força de</h2>
-                <p>
-                    Head over to the GitHub pages <a href="http://github.com/darylrowland/angucomplete">here</a> to grab the code and read the documentation on how to use this.
-                </p>
-
-                <p>
-                    You are free to use this code as you see fit. I'm realising it under a completely open license and can't wait to see what you do with it!
-                </p>
 
             </div>
 
-            <div class="very-large-padded-row">
-                <h5>By Daryl Rowland (<a href="http://twitter.com/darylrowland">@darylrowland</a>)</h5>
-            </div>
 
 
             <script src="js/angular.min.js"></script>
